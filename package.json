@@ -1,0 +1,29 @@
+{
+  "name": "nfc-music-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "help": "echo Available commands: && echo   npm start               - start server with SSL && echo   npm run fresh-batch     - delete gacha state and restart && echo   npm run gacha-status    - check when next playlist batch is due && echo   npm run gacha-reasoning - view AI curation reasoning log && echo   npm run analyze         - extract audio features from all tracks && echo   npm run tag-tracks      - add genre tags to all tracks using AI && echo   npm run help            - show this list",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gacha-status": "node gacha-status.js",
+    "gacha-reasoning": "type gacha-reasoning.log",
+    "analyze": "powershell -Command \"$env:PYTHONIOENCODING='utf-8'; C:\\Users\\richu\\AppData\\Local\\Programs\\Python\\Python314\\python.exe tools\\analyze-albums.py\"",
+    "tag-tracks": "powershell -Command \"$env:NAMING_MODEL='gemma3:12b'; node tools\\tag-tracks.js\"",
+    "start": "powershell -Command \"$env:TAILSCALE_HOSTNAME='victus.tail3a7b92.ts.net'; $env:OLLAMA_MODEL='qwen2.5:14b'; $env:NAMING_MODEL='gemma3:12b'; node server.js\"",
+    "fresh-batch": "powershell -Command \"Remove-Item gacha-state.json -ErrorAction SilentlyContinue; $env:TAILSCALE_HOSTNAME='victus.tail3a7b92.ts.net'; $env:OLLAMA_MODEL='qwen2.5:14b'; $env:NAMING_MODEL='gemma3:12b'; node server.js\"",
+    "fresh-discovery": "powershell -Command \"Remove-Item discoveries.json -ErrorAction SilentlyContinue; $env:TAILSCALE_HOSTNAME='victus.tail3a7b92.ts.net'; $env:OLLAMA_MODEL='qwen2.5:14b'; $env:NAMING_MODEL='gemma3:12b'; node server.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^16.0.0",
+    "express": "^5.2.1",
+    "multer": "^2.2.0",
+    "music-metadata": "^11.13.0",
+    "node-cron": "^4.5.0",
+    "sharp": "^0.35.2"
+  }
+}

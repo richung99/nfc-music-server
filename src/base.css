@@ -1,0 +1,15 @@
+/* ── Reset ─────────────────────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --bg:#111111;--text:#f0ead6;
+  --muted:#8a8070;--gold:#c8a84b;--gold-dim:rgba(200,168,75,0.15);
+  --pixel:'Press Start 2P',monospace;--vt:'VT323',monospace;
+}
+
+html,body{width:100%;height:100%;overflow:hidden;background:#000;
+  -webkit-user-select:none;user-select:none;
+  -webkit-touch-callout:none;
+  -webkit-tap-highlight-color:transparent;
+}
+html{perspective:1200px;}

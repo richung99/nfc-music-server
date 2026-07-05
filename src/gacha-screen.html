@@ -1,0 +1,72 @@
+<div class="screen gacha-screen" id="gachaScreen">
+  <!-- Left-edge back arrow -->
+  <button class="gacha-back-btn" id="gachaBackBtn" aria-label="Back to library">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+
+  <div class="gacha-header">
+    <div class="gacha-logo"><span>G</span><span>A</span><span>C</span><span>H</span><span>A</span></div>
+    <div class="gacha-pulls-badge" id="pullsBadge">5 LEFT</div>
+  </div>
+
+  <div class="gacha-main">
+    <div class="machine-area">
+      <!-- Mobile drawer toggle — only visible on small screens via CSS -->
+      <button class="gacha-drawer-toggle" id="gachaDrawerToggle">LISTS</button>
+      <div class="reels-row">
+        <div class="reel-wrap" id="reelWrap0"><div class="reel-center-line"></div><canvas class="reel-canvas" id="reel0"></canvas></div>
+        <div class="reel-wrap" id="reelWrap1"><div class="reel-center-line"></div><canvas class="reel-canvas" id="reel1"></canvas></div>
+        <div class="reel-wrap" id="reelWrap2"><div class="reel-center-line"></div><canvas class="reel-canvas" id="reel2"></canvas></div>
+      </div>
+      <div class="reel-labels-row">
+        <div class="reel-label">MOOD</div>
+        <div class="reel-label">SPEED</div>
+        <div class="reel-label">SETTING</div>
+      </div>
+      <div class="spin-btn-wrap">
+        <button class="spin-btn" id="btnSpin">
+          &#9670; SPIN &#9670;
+          <span class="spin-btn-sub" id="spinSubLabel">5 pulls left</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="gacha-tabs-area" id="tabsArea">
+      <div class="tab-bar">
+        <button class="tab-btn active" id="tabBtnSession" onclick="switchTab('session')">THIS SESSION</button>
+        <button class="tab-btn" id="tabBtnSaved" onclick="switchTab('saved')">SAVED</button>
+      </div>
+      <div class="tab-content">
+        <div class="tab-pane active" id="tabSession">
+          <div class="playlist-list" id="sessionList">
+            <div class="playlist-empty">No pulls yet this session.<br>Hit spin to generate one.</div>
+          </div>
+        </div>
+        <div class="tab-pane" id="tabSaved">
+          <div class="playlist-list" id="savedList">
+            <div class="playlist-empty">No saved playlists yet.<br>Save one after spinning.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="gacha-drawer-backdrop" id="gachaDrawerBackdrop"></div>
+
+<div class="reveal-overlay" id="revealOverlay">
+  <div class="reveal-card">
+    <div class="reveal-slots" id="revealSlots"></div>
+    <div class="reveal-collage" id="revealCollage"></div>
+    <div class="reveal-name" id="revealName">&#8212;</div>
+    <div class="reveal-desc" id="revealDesc">&#8212;</div>
+    <div class="reveal-meta" id="revealMeta">&#8212;</div>
+    <div class="reveal-actions">
+      <button class="btn-reveal btn-play-reveal" id="btnPlayReveal">&#9654; PLAY</button>
+      <button class="btn-reveal btn-save-reveal" id="btnSaveReveal">&#9734; SAVE</button>
+    </div>
+    <button class="reveal-close" id="btnCloseReveal">CLOSE</button>
+  </div>
+</div>
+
+<div class="gacha-toast" id="gachaToast"></div>
