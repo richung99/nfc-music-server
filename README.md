@@ -19,7 +19,13 @@ npm --version
 npm install
 ```
 
-### 3. Start the server
+### 3. Configure environment
+Copy `.env.example` to `.env` and fill in your values:
+```
+cp .env.example .env
+```
+
+### 4. Start the server
 ```
 node server.js
 ```
@@ -82,8 +88,6 @@ Examples:
 - `http://192.168.1.42:3000/play/persona5`
 - `http://192.168.1.42:3000/play/animal-crossing-nh`
 
-Use the Arduino + PN532 sketch (coming next) to write this URL to each tag.
-
 ---
 
 ## API Endpoints
@@ -117,13 +121,3 @@ To tap a cartridge away from home WiFi, expose the server via:
 
 - **Tailscale** (recommended) — free, install on phone + PC, done
 - **Cloudflare Tunnel** — free, more setup but works without installing anything on the phone
-
----
-
-## Project Roadmap
-
-- [x] Backend server with album API and audio streaming
-- [ ] Frontend player (album art, track list, auto-play)
-- [ ] Arduino sketch for writing NFC tags
-- [ ] Offline caching (for gym/commute without signal)
-- [ ] Library browse page
